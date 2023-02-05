@@ -7,16 +7,18 @@
   "dependencies": {
     "react": "16.8.6",
     "react-dom": "16.8.6",
-    "react-scripts": "^5.0.1"
+    "react-script3s": "^5.0.1"
   },
   "devDependencies": {
     "typescript": "3.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "develop": "concurrently \"react-scripts start\" \" nodemon ./src/services/server.js\"",
+    "start": "concurrently \"react-scripts start\" \" node ./src/services/server.js\"",
+    "build": "CI=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "seeds": "node ./src/services/seeds/index.js"
   },
   "browserslist": [
     ">0.2%",
